@@ -1,0 +1,11 @@
+{
+  "name": "youbike-api",
+  "version": "0.0.1",
+  "description": "fetch youbike data",
+  "main": "app.js",
+  "author": "Steven Gao",
+  "private": true,
+  "engines": {
+    "node": "6.2.2"
+  }
+}
