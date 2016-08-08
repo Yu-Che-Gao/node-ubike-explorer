@@ -1,4 +1,4 @@
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 const net = require('net');
 const server = net.createServer(function (socket) {
     socket.write('Echo server\r\n');
