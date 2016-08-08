@@ -1,17 +1,10 @@
-const express = require('express');
-const app = express();
-const request = require('request');
 const port = process.env.PORT || 80;
-
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
+const net = require('net');
+const server = net.createServer(function (socket) {
+    socket.write('Echo server\r\n');
+    socket.pipe(socket);
 });
 
-app.get('/taichung', (req, res) => {
-    request({ url: 'http://ybjson01.youbike.com.tw:1002/gwjs.json' }, (error, response, body) => {
-        res.send(response);
-    });
+server.listen(port, '127.0.0.1', function () {
+    console.log('listening on port ' + port);
 });
-
-app.listen(port, () => { console.log('listening on port ' + port); });
