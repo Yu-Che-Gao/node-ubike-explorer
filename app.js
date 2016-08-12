@@ -6,8 +6,10 @@ var server = require('http').createServer()
   , app = express()
   , port = process.env.PORT || 4080;
 
-app.use(function (req, res) {
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
   res.send({ msg: "hello" });
+  next();
 });
 
 wss.on('connection', function connection(ws) {
