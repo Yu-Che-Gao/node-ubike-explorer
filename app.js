@@ -16,13 +16,14 @@ wss.on('connection', function connection(ws) {
   let location = url.parse(ws.upgradeReq.url, true);
   ws.on('message', function incoming(message) {
     console.log('received: %s', message);
+    sendRoutine();
+    function sendRoutine() {
+      ws.send('something');
+      setTimeout(sendRoutine, 1000);
+    }
   });
 
-  sendRoutine();
-  function sendRoutine() {
-    ws.send('something');
-    setTimeout(sendRoutine, 1000);
-  }
+
 });
 
 server.on('request', app);
