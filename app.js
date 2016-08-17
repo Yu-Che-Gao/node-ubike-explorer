@@ -16,9 +16,16 @@ wss.on('connection', (ws) => {
   let location = url.parse(ws.upgradeReq.url, true);
   ws.on('message', (message) => {
     console.log('received: ' + message);
+
   });
 
-  ws.send('this is something ' + Date.now());
+  sendAction();
+  function sendAction() {
+    ws.send('this is something ' + Date.now());
+    setTimeout(sendAction, 1000);
+  }
+
+
 });
 
 server.on('request', app);
