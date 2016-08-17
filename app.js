@@ -6,16 +6,16 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 4080;
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.send({ msg: "hello" });
   next();
 });
 
 wss.on('connection', (ws) => {
-  var location = url.parse(ws.upgradeReq.url, true);
+  let location = url.parse(ws.upgradeReq.url, true);
   ws.on('message', (message) => {
-    console.log('received: %s', message);
+    console.log('received: ' + message);
   });
 
   ws.send('this is something');
