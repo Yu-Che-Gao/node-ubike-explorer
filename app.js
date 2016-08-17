@@ -18,7 +18,7 @@ wss.on('connection', (ws) => {
     console.log('received: ' + message);
   });
 
-  ws.send('this is something');
+  ws.send('this is something ' + Date.now());
 });
 
 server.on('request', app);
