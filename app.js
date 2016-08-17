@@ -1,10 +1,10 @@
-var server = require('http').createServer()
-  , url = require('url')
-  , WebSocketServer = require('ws').Server
-  , wss = new WebSocketServer({ server: server })
-  , express = require('express')
-  , app = express()
-  , port = process.env.PORT || 4080;
+const server = require('http').createServer()
+const url = require('url')
+const WebSocketServer = require('ws').Server
+const wss = new WebSocketServer({ server: server })
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4080;
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
