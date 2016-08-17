@@ -8,7 +8,7 @@ const port = process.env.PORT || 4080;
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.send({ msg: "hello" });
+  res.send({ msg: 'hello, it is ' + Date.now() });
   next();
 });
 
